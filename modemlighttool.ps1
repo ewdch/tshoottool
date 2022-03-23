@@ -6,13 +6,28 @@ $form.Text = 'MODEM LIGHT TOOL'
 $form.Size = New-Object System.Drawing.Size(800,380)
 $form.StartPosition = 'CenterScreen'
  
-###BUTTONS###
-##DSL##
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ###LABELS###
 #DSL LABELS 1,01-07#
 $label1 = New-Object System.Windows.Forms.Label
-$label1.Location = New-Object System.Drawing.Point(70,10)
+$label1.Location = New-Object System.Drawing.Point(80,10)
 $label1.Size = New-Object System.Drawing.Size(30,20)
 $label1.Text = 'DSL'
 $form.Controls.Add($label1)
@@ -103,45 +118,67 @@ $textBox07.Location = New-Object System.Drawing.Point(70,200)
 $textBox07.Size = New-Object System.Drawing.Size(70,70)
 $form.Controls.Add($textBox07)
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #CABLE LABEL//TEXTBOXES#
-#001,12-16#
+
+
+#001,11-15#
 $label001 = New-Object System.Windows.Forms.Label
-$label001.Location = New-Object System.Drawing.Point(220,10)
+$label001.Location = New-Object System.Drawing.Point(235,10)
 $label001.Size = New-Object System.Drawing.Size(45,15)
 $label001.Text = 'CABLE '
 $form.Controls.Add($label001) 
 #
+$label11 = New-Object System.Windows.Forms.Label
+$label11.Location = New-Object System.Drawing.Point(195,30)
+$label11.Size = New-Object System.Drawing.Size(120,15)
+$label11.Text = 'Modem Make/Model: '
+$label11.Font = New-Object System.Drawing.Font("Verdana",8,[System.Drawing.FontStyle]::Regular)
+$form.Controls.Add($label11) 
+#
 $label12 = New-Object System.Windows.Forms.Label
-$label12.Location = New-Object System.Drawing.Point(195,30)
+$label12.Location = New-Object System.Drawing.Point(200,73)
 $label12.Size = New-Object System.Drawing.Size(120,15)
-$label12.Text = 'Modem Make/Model: '
+$label12.Text = 'Router/Make Model: '
 $label12.Font = New-Object System.Drawing.Font("Verdana",8,[System.Drawing.FontStyle]::Regular)
 $form.Controls.Add($label12) 
 #
 $label13 = New-Object System.Windows.Forms.Label
-$label13.Location = New-Object System.Drawing.Point(200,73)
-$label13.Size = New-Object System.Drawing.Size(120,15)
-$label13.Text = 'Router/Make Model: '
-$label13.Font = New-Object System.Drawing.Font("Verdana",8,[System.Drawing.FontStyle]::Regular)
+$label13.Location = New-Object System.Drawing.Point(170,120)
+$label13.Size = New-Object System.Drawing.Size(40,15)
+$label13.Text = 'Power: '
 $form.Controls.Add($label13) 
 #
 $label14 = New-Object System.Windows.Forms.Label
-$label14.Location = New-Object System.Drawing.Point(170,120)
-$label14.Size = New-Object System.Drawing.Size(40,15)
-$label14.Text = 'Power: '
+$label14.Location = New-Object System.Drawing.Point(155,140)
+$label14.Size = New-Object System.Drawing.Size(60,15)
+$label14.Text = 'Upstream: '
 $form.Controls.Add($label14) 
 #
-$label15 = New-Object System.Windows.Forms.Label
-$label15.Location = New-Object System.Drawing.Point(155,140)
-$label15.Size = New-Object System.Drawing.Size(60,15)
-$label15.Text = 'Upstream: '
+$label15= New-Object System.Windows.Forms.Label
+$label15.Location = New-Object System.Drawing.Point(140,160)
+$label15.Size = New-Object System.Drawing.Size(75,15)
+$label15.Text = 'Downstream: '
 $form.Controls.Add($label15) 
-#
-$label16= New-Object System.Windows.Forms.Label
-$label16.Location = New-Object System.Drawing.Point(140,160)
-$label16.Size = New-Object System.Drawing.Size(75,15)
-$label16.Text = 'Downstream: '
-$form.Controls.Add($label16) 
 ###
 $textBox11 = New-Object System.Windows.Forms.TextBox
 $textBox11.Location = New-Object System.Drawing.Point(180,50)
@@ -153,28 +190,155 @@ $textBox12.Location = New-Object System.Drawing.Point(180,90)
 $textBox12.Size = New-Object System.Drawing.Size(150,70)
 $form.Controls.Add($textBox12)
 #
+$textBox13 = New-Object System.Windows.Forms.TextBox
+$textBox13.Location = New-Object System.Drawing.Point(215,120)
+$textBox13.Size = New-Object System.Drawing.Size(70,70)
+$form.Controls.Add($textBox13)
+#
 $textBox14 = New-Object System.Windows.Forms.TextBox
-$textBox14.Location = New-Object System.Drawing.Point(215,120)
+$textBox14.Location = New-Object System.Drawing.Point(215,140)
 $textBox14.Size = New-Object System.Drawing.Size(70,70)
 $form.Controls.Add($textBox14)
 #
 $textBox15 = New-Object System.Windows.Forms.TextBox
-$textBox15.Location = New-Object System.Drawing.Point(215,140)
+$textBox15.Location = New-Object System.Drawing.Point(215,160)
 $textBox15.Size = New-Object System.Drawing.Size(70,70)
 $form.Controls.Add($textBox15)
-#
-$textBox16 = New-Object System.Windows.Forms.TextBox
-$textBox16.Location = New-Object System.Drawing.Point(215,160)
-$textBox16.Size = New-Object System.Drawing.Size(70,70)
-$form.Controls.Add($textBox16)
+
+##CABLE COPY BUTTON##
+$issueButton = New-Object System.Windows.Forms.Button
+$issueButton.Add_Click(
+    {
+        "$($label11.Text) $($textBox11.text)`r`n$($label12.Text) $($textBox12.text)`r`n$($label13.Text) $($textBox13.text)`r`n$($label14.Text) $($textBox14.text)`r`n$($label15.Text) $($textBox15.text)`r`n" | Set-Clipboard
+    }
+)
+$issueButton.Location = New-Object System.Drawing.Point(200, 290)
+$issueButton.Text = "Copy"
+$form.Controls.Add($issueButton)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 #FTTH LABEL#
-$label3 = New-Object System.Windows.Forms.Label
-$label3.Location = New-Object System.Drawing.Point(250,50)
-$label3.Size = New-Object System.Drawing.Size(45,45)
-$label3.Text = 'FTTH '
+$label30 = New-Object System.Windows.Forms.Label
+$label30.Location = New-Object System.Drawing.Point(390,10)
+$label30.Size = New-Object System.Drawing.Size(45,15)
+$label30.Text = 'FTTH'
+$form.Controls.Add($label30) 
+
+$label31 = New-Object System.Windows.Forms.Label
+$label31.Location = New-Object System.Drawing.Point(355,30)
+$label31.Size = New-Object System.Drawing.Size(120,15)
+$label31.Text = 'Router Make/Model: '
+$label31.Font = New-Object System.Drawing.Font("Verdana",8,[System.Drawing.FontStyle]::Regular)
+$form.Controls.Add($label31) 
+
+$label32 = New-Object System.Windows.Forms.Label
+$label32.Location = New-Object System.Drawing.Point(395,73)
+$label32.Size = New-Object System.Drawing.Size(35,15)
+$label32.Text = 'ONT: '
+$label32.Font = New-Object System.Drawing.Font("Verdana",8,[System.Drawing.FontStyle]::Regular)
+$form.Controls.Add($label32) 
+
+$label33 = New-Object System.Windows.Forms.Label
+$label33.Location = New-Object System.Drawing.Point(335,123)
+$label33.Size = New-Object System.Drawing.Size(35,15)
+$label33.Text = 'BBU: '
+$label33.Font = New-Object System.Drawing.Font("Verdana",8,[System.Drawing.FontStyle]::Regular)
 $form.Controls.Add($label33) 
+
+$label34 = New-Object System.Windows.Forms.Label
+$label34.Location = New-Object System.Drawing.Point(330,143)
+$label34.Size = New-Object System.Drawing.Size(40,15)
+$label34.Text = 'Status: '
+$form.Controls.Add($label34) 
+
+$label34 = New-Object System.Windows.Forms.Label
+$label34.Location = New-Object System.Drawing.Point(345,163)
+$label34.Size = New-Object System.Drawing.Size(25,15)
+$label34.Text = 'DC: '
+$form.Controls.Add($label34) 
+
+$label35 = New-Object System.Windows.Forms.Label
+$label35.Location = New-Object System.Drawing.Point(338,183)
+$label35.Size = New-Object System.Drawing.Size(32,15)
+$label35.Text = 'Mute: '
+$form.Controls.Add($label35) 
+
+$label36 = New-Object System.Windows.Forms.Label
+$label36.Location = New-Object System.Drawing.Point(328,201)
+$label36.Size = New-Object System.Drawing.Size(43,15)
+$label36.Text = 'Battery: '
+$form.Controls.Add($label36) 
+
+
+$textBox31 = New-Object System.Windows.Forms.TextBox
+$textBox31.Location = New-Object System.Drawing.Point(340,50)
+$textBox31.Size = New-Object System.Drawing.Size(150,70)
+$form.Controls.Add($textBox31)
+
+$textBox32 = New-Object System.Windows.Forms.TextBox
+$textBox32.Location = New-Object System.Drawing.Point(340,90)
+$textBox32.Size = New-Object System.Drawing.Size(150,70)
+$form.Controls.Add($textBox32)
+
+$textBox33 = New-Object System.Windows.Forms.TextBox
+$textBox33.Location = New-Object System.Drawing.Point(375,120)
+$textBox33.Size = New-Object System.Drawing.Size(70,70)
+$form.Controls.Add($textBox33)
+
+$textBox34 = New-Object System.Windows.Forms.TextBox
+$textBox34.Location = New-Object System.Drawing.Point(375,140)
+$textBox34.Size = New-Object System.Drawing.Size(70,70)
+$form.Controls.Add($textBox34)
+
+$textBox35 = New-Object System.Windows.Forms.TextBox
+$textBox35.Location = New-Object System.Drawing.Point(375,160)
+$textBox35.Size = New-Object System.Drawing.Size(70,70)
+$form.Controls.Add($textBox35)
+
+$textBox36 = New-Object System.Windows.Forms.TextBox
+$textBox36.Location = New-Object System.Drawing.Point(375,180)
+$textBox36.Size = New-Object System.Drawing.Size(70,70)
+$form.Controls.Add($textBox36)
+
+$textBox37 = New-Object System.Windows.Forms.TextBox
+$textBox37.Location = New-Object System.Drawing.Point(375,200)
+$textBox37.Size = New-Object System.Drawing.Size(70,70)
+$form.Controls.Add($textBox37)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #FIXED WLESS#
 $label4 = New-Object System.Windows.Forms.Label
 $label4.Location = New-Object System.Drawing.Point(350,50)
@@ -194,16 +358,7 @@ $issueButton.Location = New-Object System.Drawing.Point(60, 290)
 $issueButton.Text = "Copy"
 $form.Controls.Add($issueButton)
 
-##CABLE COPY BUTTON##
-$issueButton = New-Object System.Windows.Forms.Button
-$issueButton.Add_Click(
-    {
-        "$($label11.Text) $($textBox11.text)`r`n$($label12.Text) $($textBox12.text)`r`n$($label13.Text) $($textBox13.text)`r`n$($label14.Text) $($textBox14.text)`r`n$($label15.Text) $($textBox15.text)`r`n$($label16.Text) $($textBox16.text)`r`n" | Set-Clipboard
-    }
-)
-$issueButton.Location = New-Object System.Drawing.Point(200, 290)
-$issueButton.Text = "Copy"
-$form.Controls.Add($issueButton)
+
 
 $form.Add_Shown({$textBox.Select()})
 $result = $form.ShowDialog()
